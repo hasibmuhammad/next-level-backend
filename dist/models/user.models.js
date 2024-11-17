@@ -11,12 +11,14 @@ const userSchema = new mongoose_1.default.Schema({
         required: true,
         unique: true,
         lowercase: true,
+        index: true,
     },
     email: {
         type: String,
         required: true,
         unique: true,
         lowercase: true,
+        trim: true,
     },
 }, { timestamps: true });
 exports.User = mongoose_1.default.model("User", userSchema);

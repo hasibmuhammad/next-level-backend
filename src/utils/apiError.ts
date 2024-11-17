@@ -1,7 +1,7 @@
 class ApiError extends Error {
   success: boolean;
   statusCode: number;
-  data: any;
+  data: unknown;
   errors: string[];
   constructor(
     statusCode: number,
@@ -24,3 +24,4 @@ class ApiError extends Error {
   }
 }
 export { ApiError };
+
