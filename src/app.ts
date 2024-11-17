@@ -1,24 +1,20 @@
-import cors from "cors";
-import express, { urlencoded } from "express";
 import cookieParser from "cookie-parser";
-import userRouter from "./routes/users";
-import postRotuer from "./routes/posts";
+import cors from "cors";
+import express, { urlencoded } from 'express';
+import { studentRouter } from "./modules/students/students.routes";
 
 const app = express();
 
-// middlewares and parsers
+// middleware
 app.use(express.json({ limit: "16kb" }));
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-  })
-);
+app.use(cors({
+    origin: process.env.CORS_ORIGIN
+}));
 app.use(urlencoded({ extended: true, limit: "16kb" }));
 app.use(cookieParser());
 
 // routes
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/posts", postRotuer);
+app.use("/api/v1/students", studentRouter);
 
 export default app;
+
