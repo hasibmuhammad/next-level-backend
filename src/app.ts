@@ -1,6 +1,7 @@
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express, { urlencoded } from 'express';
+import { postRouter } from "./modules/posts/posts.routes";
 import { studentRouter } from "./modules/students/students.routes";
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/v1/students", studentRouter);
+app.use("/api/v1/posts", postRouter);
 
 export default app;
 
