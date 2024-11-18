@@ -27,7 +27,7 @@ const getAllPostsFromDB = async () => {
 }
 
 const getPostByIdFromDB = async (id: string) => {
-    const result = await postsModel.findById({ _id: new mongoose.Types.ObjectId(id) })
+    const result = await postsModel.findById({ _id: new mongoose.Types.ObjectId(id) });
     return result;
 }
 

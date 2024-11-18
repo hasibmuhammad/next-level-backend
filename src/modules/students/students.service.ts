@@ -8,8 +8,13 @@ const createStudentIntoDB = async (student: IStudentInfo) => {
 }
 
 const getStudentsFromDB = async () => {
-    const result = await studentModel.find();
-    return result;
+    const allStudents = await studentModel.find();
+    const aggregatedData = await studentModel.aggregate([
+        // stage - 1
+        { $match: {} },
+        { $group: { _id: null, "totalStudents": { $sum: 1 } } },
+    ])
+    return { students: allStudents, totalStudents: aggregatedData[0].totalStudents };
 }
 
 const getStudentByIdFromDB = async (id: string) => {

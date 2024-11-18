@@ -34,4 +34,4 @@ const getPostById = async (req: Request, res: Response) => {
         console.error("Error fetching post: ", error);
     }
 }
-export const postController = { createPost, getAllposts, getPostById }
+export const postController = { createPost, getAllposts, getPostById };
